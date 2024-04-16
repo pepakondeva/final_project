@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<main>
+     <section id="details">
+            <div id="details-wrapper">
+                    <h2 class="book-details">{{ object.title }}</h2>
+
+                <img id="details-img" src="/media/{{ object.image }}" alt="book-image"/>
+
+                <p id="details-title">{{ object.title }}</p>
+
+{#                 <p id="details-title">{{ object.author }}</p>#}
+              <div id="action-buttons">
+                        <a href="{% url 'author details' pk=book.author.pk%}" id="edit-btn">{{ object.author }}</a>
+              </div>
+                <p id="details-title">{{ object.genre }}</p>
+
+                <div id="info-wrapper">
+                    <div id="details-description">
+                        <p id="book-description">Review:</p>
+                        <p id="book-description">
+                            {{ object.review }}
+                        </p>
+                    </div>
+
+                    {% if is_owner %}
+                    <div id="action-buttons">
+                        <a href="{% url 'book edit' pk=object.pk%}" id="edit-btn">Edit</a>
+                        <a href="{% url 'book delete' pk=object.pk %}" id="delete-btn">Delete</a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </section>
+
+    </main>
+{% endblock %}

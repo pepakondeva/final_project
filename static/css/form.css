@@ -1,0 +1,133 @@
+:root {
+    --background-url: url('../images/dot.jpeg');
+    /*--form-background-url: url(images/form-background.png);*/
+    --shadows: #888888;
+    --border-color: rgb(206, 206, 206);
+
+}
+.author-add-list,
+.form {
+  background-image: var(--background-url);
+  max-width: 440px;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+
+  padding: 45px;
+  text-align: center;
+  border-radius: 10px;
+  border: 1px solid;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.form h2 {
+  margin-bottom: 50px;
+  font-size: 30px;
+  color: #504D4D;
+  font-style: italic;
+}
+
+.form input {
+  border-radius: 10px;
+  outline: 0;
+  background: #ECE9E9;
+  width: 100%;
+  height: 50px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+  border: 1px solid rgb(206, 206, 206);
+  margin-top: 8px;
+  margin-bottom: 15px;
+
+
+
+}
+.form textarea {
+  background: #ECE9E9;
+  border-radius: 10px;
+  border: 1px solid rgb(206, 206, 206);
+  width: 99%;
+  max-width: 99%;
+  min-width: 99%;
+  min-height: 50px;
+  margin-bottom: 15px;
+  margin-top: 8px;
+
+}
+
+.form button {
+  text-transform: uppercase;
+  outline: 0;
+  background: #686868;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #ffffff;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+
+}
+.author-add button:hover,
+.author-add button:active,
+.author-add button:focus,
+.form button:hover,
+.form button:active,
+.form button:focus {
+  background: #E8C6D6;
+}
+
+
+.form select {
+  background: #ECE9E9;
+  border-radius: 10px;
+  border: 1px solid rgb(206, 206, 206);
+  width: 99%;
+  max-width: 99%;
+  min-width: 99%;
+  min-height: 50px;
+  margin-bottom: 15px;
+  margin-top: 8px;
+
+}
+
+/*.form label {*/
+/*    font-style: italic*/
+/*}*/
+
+.author-add-list h2{
+  font-size: 25px;
+  color: #504D4D;
+  font-style: italic;
+}
+
+.author-link{
+  list-style: none;
+  padding-top: 10px;
+}
+
+.author-add-list button{
+  text-transform: uppercase;
+  outline: 0;
+  background: #686868;
+  width: 50%;
+  border: 0;
+  padding: 15px;
+  color: #ffffff;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.author-add-list button a{
+  color: #ffffff;
+  text-decoration: none;
+}
+
+#create{
+  max-height: 100vh;
+}

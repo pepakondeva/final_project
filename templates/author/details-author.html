@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <main>
+
+        <section id="details">
+            <div id="details-wrapper">
+                <h2 class="book-details">Author Details</h2>
+
+                {% if object.image %}
+                <img id="details-img" src="{{ object.image }}"
+                     alt="author img"/>
+                {% endif %}
+
+                <p id="details-title">{{object.get_full_name }}</p>
+
+                <div id="info-wrapper">
+                    {% if object.about %}
+                    <div id="details-description">
+                        <p id="books-read">{{ object.about }}</p>
+                        {% endif %}
+                    </div>
+                 <div id="details-description-author">
+                    <p class="book-by-the-author"><i>Books by the author</i></p>
+                    </div>
+
+                <div id="details-description-author">
+                        <ol>
+                            {% for book in books %}
+                            <li>{{ book.title }}</li>
+                            {% endfor %}
+                        </ol>
+                </div>
+                </div>
+
+            {% if object.is_user_staff %}
+            </div>
+                    <div id="action-buttons">
+                        <a href="{% url 'author edit' pk=object.pk %}" id="edit-btn">Edit</a>
+                        <a href="{% url 'author delete' pk=object.pk %}" id="delete-btn">Delete</a>
+                    </div>
+        {% endif %}
+        </section>
+    </main>
+
+{% endblock %}

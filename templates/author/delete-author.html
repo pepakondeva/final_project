@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+    <main>
+        <section id="create">
+            <div class="form">
+                <h2>Delete Author</h2>
+                <form method=post action='{% url 'author delete' pk=author.pk %}'>
+                   {{ form.as_p }}
+                    {% csrf_token %}
+                    <button type="submit">Delete Author</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+{% endblock %}

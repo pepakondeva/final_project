@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+    <main>
+        <section id="create">
+            <div class="form">
+                <h2>Delete Book Review</h2>
+                <form method=post action='{% url 'book delete' pk=book.pk %}' class="create-form" enctype="multipart/form-data">
+                   {{ form.as_p }}
+                    {% csrf_token %}
+                    <button type="submit">Delete Book</button>
+                </form>
+            </div>
+        </section>
+    </main>
+{% endblock %}

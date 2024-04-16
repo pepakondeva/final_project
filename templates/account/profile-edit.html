@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+    <main>
+        <section id="create">
+            <div class="form">
+                <h2>Profile Edit</h2>
+                <form method="post" action="{% url 'profile-edit' pk=object.pk %}" enctype="multipart/form-data">
+                    <input type="hidden" name="next" value="{{ next }}">
+                    {{ form.as_p }}
+                    {% csrf_token %}
+                    <button type="submit"> Profile Edit</button>
+                </form>
+            </div>
+        </section>
+    </main>
+{% endblock %}

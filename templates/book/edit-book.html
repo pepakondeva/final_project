@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+    <main>
+        <section id="create">
+            <div class="form">
+                <h2>Edit Book Review</h2>
+                <form method=post action='{% url 'book edit' pk=object.pk %}' class="create-form" enctype="multipart/form-data">
+                   {{ form.as_p }}
+                    {% csrf_token %}
+                    <button type="submit">Edit Book</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+{% endblock %}

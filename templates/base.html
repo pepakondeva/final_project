@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet"
+          href="{% static 'css/styles.css' %}">
+    <title>BookLoverGram</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+</head>
+
+<header>
+    {% include 'nav.html' %}
+</header>
+
+<main>
+    {% block content %}
+
+    {% endblock %}
+</main>
+</html>
+
+<footer class="footer-details">
+    <p id="footer-details-last">@Bookipedia - Python Web Project. All rights reserved.</p>
+</footer>
+
+{#<footer>#}
+{#    <section class="home-footer">#}
+{#        <div class="home-content4">#}
+{#              <div class="home-heading4">#}
+{#                <img alt="image" src="{% static '/images/2.png' %}"#}
+{#                  class="home-image1"/>#}
+{#                  <span class="home-copyright">#}
+{#			© 2024 SOFTUNI FINAL PROJECT FOR PYTHON WEB MODULE#}
+{#          </span>#}
+{#            </div>#}
+{#          </div>#}
+{#      </section>#}
+{#</footer>#}

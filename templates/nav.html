@@ -1,0 +1,47 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Licorice&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+{% load static %}
+
+<nav class="navbar">
+        <div class="container-form">
+            <div class="logo">
+                <a class="home" href="{% url 'index' %}">
+                    <i class="nav-logo-start">BookLoverGram</i>
+                </a>
+            </div>
+
+            <div class="nav-links">
+                <ul class="nav-group">
+                    <li class="nav-item">
+                        {% if request.user.is_authenticated %}
+                        <a href="{% url 'book add' %}" class="nav-links">
+                            <i>Add Book Review</i>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{% url 'profile-details' pk=request.user.pk %}" class="nav-links">
+                            <i>Profile Details</i>
+                        </a>
+                    </li>
+                            <li class="nav-item">
+                        <a href="{% url 'logout' %}" class="nav-links">
+                            <i>Log Out</i></a>
+                              </li>
+
+                    {% else %}
+                              <li class="nav-item">
+                        <a href="{% url 'sign-in' %}" class="nav-links">
+                            <i>Sign In</i>
+                        </a>
+                              </li>
+                    <li class="nav-item">
+                        <a href="{% url 'sign-up' %}" class="nav-links">
+                            <i>Sign Up</i>
+                        </a>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+</nav>

@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    {% if not request.user.is_authenticated %}
+    <div class="home-container">
+      <section class="home-hero">
+        <div class="home-main">
+          <div class="home-video">
+            <img src="{% static 'images/d80b3c7206ed4a28a844626eeddf7bbe.jpeg' %}"
+              class="home-video1" />
+            <div class="home-tint"></div>
+          </div>
+
+          <div class="home-content">
+            <div class="home-center">
+              <div class="home-heading">
+                <h1 class="home-header">"Once you learn to read, you will be forever free..."</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="home-testimonials">
+        <div class="home-content1">
+          <div class="home-heading1">
+            <span class="home-title"></span>
+            <p class="home-quote">
+              "A book lover is a person who enjoys reading.
+              A book lover's spiritual home is a rambling and cluttered magical book store -
+               an imaginarium for the mind and senses.
+              "
+            </p>
+          </div>
+        </div>
+      </section>
+      <div id="features" class="home-feaures">
+        <div class="home-content2">
+          <div class="feature-feature">
+            <div class="feature-heading">
+              <h3 class="feature-header"><span>Welcome to BookLoverGram – your ultimate destination for sharing and discovering insightful book reviews!</span></h3>
+            </div>
+            <p class="feature-description">
+                 We're dedicated to creating community where book lovers can connect and share their passion for reading.
+              </p>
+            </p>
+          </div>
+        </div>
+      </div>
+      <section class="home-articles">
+        <div id="articles" class="home-content3">
+          <div class="home-list">
+            <div class="home-row">
+              <div class="article-article article-root-class-name1">
+                <img alt="image" src="{% static 'images/Blue and White Reading Bingo Challenge Worksheet.jpg' %}"
+                  class="article-image" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+    {% else %}
+
+        <form method='GET' action="{% url 'index' %}" class="searchbar">
+            <input name="pattern" placeholder="Search for books by title...">
+            <button>
+                    <img src="{% static '/images/search.png' %}" height="18" alt="img2">
+            </button>
+        </form>
+
+    <div class="home-blog-index-page">
+    {% for book in object_list %}
+    <div class="home-container1">
+      <div class="blog-post-card1-blog-post-card">
+        <img alt="book-image"
+             src="/media/{{ book.image }}"
+          class="blog-post-card1-image" />
+        <div class="blog-post-card1-container">
+          <span class="blog-post-card1-text1">
+            <span>{{ book.title }}</span>
+          </span>
+          <span class="blog-post-card1-text2">
+            <span>
+              {{ book.genre }}
+            </span>
+          </span>
+          <div class="blog-post-card1-container1">
+            <div class="blog-post-card1-profile">
+              <span class="blog-post-card1-text3">
+                <span>{{ book.author }}</span>
+              </span>
+
+            </div>
+              <div id="action-buttons">
+                  <a href="{% url 'book details' pk=book.pk%}" id="edit-btn">Read more</a>
+              </div>
+              <div id="action-buttons">
+                  <a href="{% url 'profile-details' pk=book.user.pk%}" id="edit-btn">User Profile</a>
+              </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+     {% endif %}
+</div>
+{% endblock %}

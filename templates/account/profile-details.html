@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<main>
+     <section id="details">
+
+         <h2 class="book-details">Profile Details</h2>
+
+            <div id="details-wrapper-new">
+
+            <div class="one-part">
+
+            <div class="first-tab-activities-desc">
+                {% if is_owner %}
+                 <p id="details-title">{{ account_details.email }}</p>
+            {% endif %}
+                 <p id="details-title">{{ object.full_name }}</p>
+                 <p id="details-title">{{ object.age }}</p>
+
+                <div id="info-wrapper">
+                    <div id="details-description">
+                        <p id="title-books-count">Books review:</p>
+                        <p id="title-books-count">
+                            {{ count_books }}
+                        </p>
+                    </div>
+            </div>
+            </div>
+
+            </div>
+
+            <div class="second-part">
+                {% if object.profile_image %}
+                  <img alt="book-image"
+                     src="/media/{{ object.profile_image }}"
+                     class="picture-details-info" />
+                {% else %}
+                <img alt="book-image"
+                     src="{% static '/images/profile-without-image.jpg' %}"
+                     class="picture-details-info" />
+                {% endif %}
+            </div>
+            </div>
+
+         {% if is_owner %}
+                       <div id="action-buttons">
+                        <a href="{% url 'profile-edit' pk=object.pk%}" id="edit-btn">Edit Profile</a>
+                       </div>
+            {% endif %}
+
+        </section>
+
+{% if all_books %}
+<div class="home-blog">
+    {% for book in all_books %}
+    <div class="home-container1">
+      <div class="blog-post-card1-blog-post-card">
+        <img alt="book-image"
+             src="/media/{{ book.image }}"
+          class="blog-post-card1-image" />
+        <div class="blog-post-card1-container">
+          <span class="blog-post-card1-text1">
+            <span>{{ book.title }}</span>
+          </span>
+          <span class="blog-post-card1-text2">
+            <span>
+              {{ book.genre }}
+            </span>
+          </span>
+          <div class="blog-post-card1-container1">
+            <div class="blog-post-card1-profile">
+              <span class="blog-post-card1-text3">
+                <span>{{ book.author }}</span>
+              </span>
+
+            </div>
+              <div id="action-buttons">
+                  <a href="{% url 'book details' pk=book.pk%}" id="edit-btn">More Details</a>
+              </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+{% else %}
+<h2 class="no-post-yet">No posts yet</h2>
+{% endif %}
+</div>
+</main>
+{% endblock %}

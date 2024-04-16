@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+    <main>
+
+    <div class="author-add-list">
+            <h2 class="author-add">
+                If the author is not in the list of authors.
+                <li class="author-link">
+                    <button><a href="{% url 'author add' %}">Add Author</a></button>
+                </li>
+            </h2>
+        </div>
+        <section id="create">
+            <div class="form">
+                <h2>Add Book Review</h2>
+                <form method=post action='{% url 'book add' %}' class="create-form" enctype="multipart/form-data">
+                   {{ form.as_p }}
+                    {% csrf_token %}
+                    <button type="submit">Add Book</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+{% endblock %}
